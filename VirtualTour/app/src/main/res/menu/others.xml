@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_malad"
+        android:title="@string/nessMalad"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_airoli"
+        android:title="@string/nessAiroli"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_hyderabad"
+        android:title="@string/nessHyderabad"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_bangalore"
+        android:title="@string/nessbangalore"
+        app:showAsAction="never" />
+
+</menu>

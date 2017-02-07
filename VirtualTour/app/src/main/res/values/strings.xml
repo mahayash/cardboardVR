@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VirtualTour</string>
+    <string name="nessAiroli">Ness Airoli</string>
+    <string name="nessMalad">Ness Malad</string>
+    <string name="nessHyderabad">Ness Hyderabad</string>
+    <string name="nessbangalore">Ness Bangalore</string>
 </resources>
