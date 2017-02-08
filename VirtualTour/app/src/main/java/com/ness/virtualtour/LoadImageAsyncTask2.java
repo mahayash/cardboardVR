@@ -38,6 +38,6 @@ public class LoadImageAsyncTask2 extends AsyncTask<String, Void, InputStream> {
     @Override
     protected void onPostExecute(InputStream inputStream) {
         super.onPostExecute(inputStream);
-        iLoadImageListener.loadImage(inputStream, null);
+        //iLoadImageListener.loadImage(inputStream, null, wi);
     }
 }
