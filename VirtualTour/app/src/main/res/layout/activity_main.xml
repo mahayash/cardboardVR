@@ -50,8 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dip"
             android:layout_below="@id/txt_reception"
-            android:scrollbars="@null"
-            android:visibility="invisible" />
+            android:scrollbars="none" />
 
         <TextView
             android:id="@+id/txt_inside_office"
