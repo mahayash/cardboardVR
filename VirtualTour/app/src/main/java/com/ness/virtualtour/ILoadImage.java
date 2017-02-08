@@ -6,6 +6,6 @@ import java.io.InputStream;
 
 public interface ILoadImage {
 
-    void loadImage(InputStream inputStream, VrPanoramaView.Options options);
+    void loadImage(InputStream inputStream, VrPanoramaView.Options options, int widgetPosition);
 
 }

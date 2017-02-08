@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,75 +19,63 @@
             style="@style/textStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Lobby" />
 
 
-        <!--<com.google.vr.sdk.widgets.pano.VrPanoramaView
+        <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_lobby"
-            android:layout_width="match_parent"
-            android:layout_height="250dip"
-            android:layout_below="@id/txt_lobby"
-            android:scrollbars="@null" />-->
-        <ImageView
-            android:id="@+id/pnv_lobby"
-            android:layout_width="match_parent"
-            android:layout_height="150dip"
+            style="@style/panoViewStyle"
             android:layout_below="@id/txt_lobby" />
 
         <TextView
             android:id="@+id/txt_reception"
             style="@style/textStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@id/pnv_lobby"
-            android:layout_marginTop="20dp"
             android:text="Reception" />
 
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_reception"
-            android:layout_width="match_parent"
-            android:layout_height="150dip"
-            android:layout_below="@id/txt_reception"
-            android:scrollbars="none" />
+            style="@style/panoViewStyle"
+            android:layout_below="@id/txt_reception" />
 
         <TextView
             android:id="@+id/txt_inside_office"
             style="@style/textStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@id/pnv_reception"
-            android:layout_marginTop="20dp"
             android:text="Inside Office" />
 
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_inside_office"
-            android:layout_width="match_parent"
-            android:layout_height="250dip"
-            android:layout_below="@id/txt_inside_office"
-            android:scrollbars="@null"
-            android:visibility="invisible" />
+            style="@style/panoViewStyle"
+            android:layout_below="@id/txt_inside_office" />
 
 
         <TextView
             android:id="@+id/txt_canteen"
             style="@style/textStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@id/pnv_inside_office"
-            android:layout_marginTop="20dp"
             android:text="Canteen" />
 
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_canteen"
-            android:layout_width="match_parent"
-            android:layout_height="250dip"
-            android:layout_below="@id/txt_canteen"
-            android:scrollbars="@null"
-            android:visibility="invisible" />
+            style="@style/panoViewStyle"
+            android:layout_below="@id/txt_canteen" />
 
+        <TextView
+            android:id="@+id/txt_conference"
+            style="@style/textStyle"
+            android:layout_below="@id/pnv_canteen"
+            android:text="Conference" />
+
+
+        <com.google.vr.sdk.widgets.pano.VrPanoramaView
+            android:id="@+id/pnv_conference"
+            style="@style/panoViewStyle"
+            android:layout_below="@id/txt_conference" />
 
     </RelativeLayout>
 

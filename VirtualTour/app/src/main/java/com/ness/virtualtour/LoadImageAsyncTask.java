@@ -19,15 +19,16 @@ public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Optio
     public static final String TAG = "TAG";
     private Context context;
     private ILoadImage iImageLoaderListener;
+    private int widgetPosition;
 
-    public LoadImageAsyncTask(Context context, ILoadImage iImageLoaderListener) {
+
+    public LoadImageAsyncTask(Context context, ILoadImage iImageLoaderListener, int widgetPosition) {
         this.context = context;
         this.iImageLoaderListener = iImageLoaderListener;
+        this.widgetPosition = widgetPosition;
     }
 
-    /**
-     * Reads the bitmap from disk in the background and waits until it's loaded by pano widget.
-     */
+
     @Override
     protected Boolean doInBackground(Pair<Uri, VrPanoramaView.Options>... fileInformation) {
         VrPanoramaView.Options panoOptions = null;
@@ -35,7 +36,24 @@ public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Optio
         if (fileInformation == null || fileInformation.length < 1 || fileInformation[0] == null || fileInformation[0].first == null) {
             AssetManager assetManager = context.getAssets();
             try {
-                istr = assetManager.open("andes.jpg");
+                switch (widgetPosition) {
+                    case 0:
+                        istr = assetManager.open("lobby.jpg");
+                        break;
+                    case 1:
+                        istr = assetManager.open("reception.jpg");
+                        break;
+                    case 2:
+                        istr = assetManager.open("inside_office.jpg");
+                        break;
+                    case 3:
+                        istr = assetManager.open("canteen.jpg");
+                        break;
+                    case 4:
+                        istr = assetManager.open("reception.jpg");
+                        break;
+                }
+
                 panoOptions = new VrPanoramaView.Options();
                 panoOptions.inputType = VrPanoramaView.Options.TYPE_MONO;
             } catch (IOException e) {
@@ -52,8 +70,8 @@ public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Optio
             }
         }
 
+        iImageLoaderListener.loadImage(istr, panoOptions, widgetPosition);
 
-        iImageLoaderListener.loadImage(istr, panoOptions);
         try {
             istr.close();
         } catch (IOException e) {
