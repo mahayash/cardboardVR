@@ -44,18 +44,15 @@ public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Optio
                         istr = assetManager.open("reception.jpg");
                         break;
                     case 2:
-                        istr = assetManager.open("inside_office.jpg");
+                        istr = assetManager.open("inside_office_vt.jpg");
                         break;
                     case 3:
                         istr = assetManager.open("canteen.jpg");
                         break;
-                    case 4:
-                        istr = assetManager.open("reception.jpg");
-                        break;
                 }
 
                 panoOptions = new VrPanoramaView.Options();
-                panoOptions.inputType = VrPanoramaView.Options.TYPE_MONO;
+                panoOptions.inputType = VrPanoramaView.Options.TYPE_STEREO_OVER_UNDER;
             } catch (IOException e) {
                 Log.e(TAG, "Could not decode default bitmap: " + e);
                 return false;

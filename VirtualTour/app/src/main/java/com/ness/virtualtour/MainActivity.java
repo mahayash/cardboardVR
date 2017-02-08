@@ -35,13 +35,14 @@ public class MainActivity extends AppCompatActivity implements ILoadImage {
 
         context = this;
 
+        /*
         pnvLobby = (VrPanoramaView) findViewById(R.id.pnv_lobby);
         pnvReception = (VrPanoramaView) findViewById(R.id.pnv_reception);
         pnvReception.setEventListener(new VrActivityActionListener());
         pnvInsideOffice = (VrPanoramaView) findViewById(R.id.pnv_inside_office);
         pnvCanteen = (VrPanoramaView) findViewById(R.id.pnv_canteen);
         pnvConference = (VrPanoramaView) findViewById(R.id.pnv_conference);
-
+        */
         loadImages();
 
     }

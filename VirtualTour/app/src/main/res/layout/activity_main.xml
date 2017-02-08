@@ -22,18 +22,33 @@
             android:layout_marginTop="10dp"
             android:text="Lobby" />
 
-
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
-            android:id="@+id/pnv_lobby"
+            android:id="@+id/pnv_view"
             style="@style/panoViewStyle"
             android:layout_below="@id/txt_lobby" />
 
+        <TextView
+            android:id="@+id/txt_description"
+            style="@style/textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pnv_view"
+            android:layout_marginTop="10dp"
+            android:text="Description" />
+
+        <TextView
+            android:id="@+id/txt_description_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txt_description"
+            android:text="asdf asd adsfa sdfasdf asdfas fasdf asd asdf asdfasdf asdfasdfasdfasdfasdfasdfsdfsafdsfasdfa" />
+
+        <!--
         <TextView
             android:id="@+id/txt_reception"
             style="@style/textStyle"
             android:layout_below="@id/pnv_lobby"
             android:text="Reception" />
-
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_reception"
@@ -75,7 +90,7 @@
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_conference"
             style="@style/panoViewStyle"
-            android:layout_below="@id/txt_conference" />
+            android:layout_below="@id/txt_conference" />-->
 
     </RelativeLayout>
 
