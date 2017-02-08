@@ -12,62 +12,54 @@ import com.google.vr.sdk.widgets.pano.VrPanoramaView;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Options>, Void, Boolean> {
+    public static final String TAG = "TAG";
+    private Context context;
+    private ILoadImage iImageLoaderListener;
 
-    private Context mContext;
-    private static final String TAG = LoadImageAsyncTask.class.getSimpleName();
-    private ILoadImage iLoadImageListener;
-
-    public LoadImageAsyncTask(Context mContext, ILoadImage iLoadImageListener) {
-        this.mContext = mContext;
-        this.iLoadImageListener = iLoadImageListener;
+    public LoadImageAsyncTask(Context context, ILoadImage iImageLoaderListener) {
+        this.context = context;
+        this.iImageLoaderListener = iImageLoaderListener;
     }
 
+    /**
+     * Reads the bitmap from disk in the background and waits until it's loaded by pano widget.
+     */
     @Override
     protected Boolean doInBackground(Pair<Uri, VrPanoramaView.Options>... fileInformation) {
-
         VrPanoramaView.Options panoOptions = null;
-        InputStream inputStream = null;
-
+        InputStream istr = null;
         if (fileInformation == null || fileInformation.length < 1 || fileInformation[0] == null || fileInformation[0].first == null) {
-
-            AssetManager assetManager = mContext.getAssets();
+            AssetManager assetManager = context.getAssets();
             try {
-                inputStream = assetManager.open("andes.jpg");
+                istr = assetManager.open("andes.jpg");
                 panoOptions = new VrPanoramaView.Options();
-                panoOptions.inputType = VrPanoramaView.Options.TYPE_STEREO_OVER_UNDER;
-
-            } catch (Exception ex) {
-                Log.d(TAG, "doInBackground: " + ex);
+                panoOptions.inputType = VrPanoramaView.Options.TYPE_MONO;
+            } catch (IOException e) {
+                Log.e(TAG, "Could not decode default bitmap: " + e);
+                return false;
             }
         } else {
-
             try {
-                inputStream = new FileInputStream(new File(fileInformation[0].first.getPath()));
+                istr = new FileInputStream(new File(fileInformation[0].first.getPath()));
                 panoOptions = fileInformation[0].second;
-
-            } catch (Exception ex) {
-                Log.d(TAG, "doInBackground: " + ex);
+            } catch (IOException e) {
+                Log.e(TAG, "Could not load file: " + e);
+                return false;
             }
         }
 
 
+        iImageLoaderListener.loadImage(istr, panoOptions);
         try {
-
-            inputStream.close();
-        } catch (Exception ex) {
-            Log.d(TAG, "doInBackground: " + ex);
+            istr.close();
+        } catch (IOException e) {
+            Log.e(TAG, "Could not close input stream: " + e);
         }
 
-        iLoadImageListener.loadImage(inputStream, panoOptions);
         return true;
-    }
-
-    @Override
-    protected void onPostExecute(Boolean inputStream) {
-        super.onPostExecute(inputStream);
-
     }
 }

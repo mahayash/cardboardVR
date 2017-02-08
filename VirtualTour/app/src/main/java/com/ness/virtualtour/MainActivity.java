@@ -12,6 +12,8 @@ import android.util.Pair;
 import android.view.Menu;
 import android.widget.ImageView;
 
+import com.google.vr.sdk.widgets.common.VrEventListener;
+import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener;
 import com.google.vr.sdk.widgets.pano.VrPanoramaView;
 
 import java.io.IOException;
@@ -39,9 +41,12 @@ public class MainActivity extends AppCompatActivity implements ILoadImage {
         context = this;
         //pnvLobby = (VrPanoramaView) findViewById(R.id.pnv_lobby);
         pnvLobby = (ImageView) findViewById(R.id.pnv_lobby);
+
         pnvReception = (VrPanoramaView) findViewById(R.id.pnv_reception);
-        pnvInsideOffice = (VrPanoramaView) findViewById(R.id.pnv_inside_office);
-        pnvCanteen = (VrPanoramaView) findViewById(R.id.pnv_canteen);
+        pnvReception.setEventListener(new VrActivityActionListener());
+      /*  pnvInsideOffice = (VrPanoramaView) findViewById(R.id.pnv_inside_office);
+        pnvCanteen = (VrPanoramaView) findViewById(R.id.pnv_canteen);*/
+
         handleIntent(getIntent());
 
         //loadImage();
@@ -66,10 +71,6 @@ public class MainActivity extends AppCompatActivity implements ILoadImage {
     @Override
     public void loadImage(InputStream inputStream, VrPanoramaView.Options options) {
 
-        //pnvLobby.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options);
-        Drawable d = Drawable.createFromStream(inputStream, null);
-        //pnvLobby.setImageBitmap(BitmapFactory.decodeStream(inputStream));
-        //pnvLobby.setImageDrawable(d);
         pnvReception.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options);
     }
 
@@ -97,23 +98,22 @@ public class MainActivity extends AppCompatActivity implements ILoadImage {
             // Cancel any task from a previous intent sent to this activity.
             backgroundImageLoaderTask.cancel(true);
         }
-        backgroundImageLoaderTask = new LoadImageAsyncTask(context,this);
+        backgroundImageLoaderTask = new LoadImageAsyncTask(context, this);
         backgroundImageLoaderTask.execute(Pair.create(fileUri, panoOptions));
     }
 
+    private class VrActivityActionListener extends VrPanoramaEventListener {
+        @Override
+        public void onLoadSuccess() {
+            super.onLoadSuccess();
+            Log.d(TAG, "onLoadSuccess: ");
+        }
 
-
-    private void loadImage() {
-
-        try {
-            // get input stream
-            InputStream ims = getAssets().open("andes.jpg");
-            // load image as Drawable
-            Drawable d = Drawable.createFromStream(ims, null);
-            // set image to ImageView
-            pnvLobby.setImageDrawable(d);
-        } catch (IOException ex) {
-            return;
+        @Override
+        public void onLoadError(String errorMessage) {
+            super.onLoadError(errorMessage);
+            Log.d(TAG, "onLoadError: ");
         }
     }
+
 }

@@ -32,7 +32,7 @@
         <ImageView
             android:id="@+id/pnv_lobby"
             android:layout_width="match_parent"
-            android:layout_height="250dip"
+            android:layout_height="150dip"
             android:layout_below="@id/txt_lobby" />
 
         <TextView
@@ -48,7 +48,7 @@
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_reception"
             android:layout_width="match_parent"
-            android:layout_height="250dip"
+            android:layout_height="150dip"
             android:layout_below="@id/txt_reception"
             android:scrollbars="none" />
 
