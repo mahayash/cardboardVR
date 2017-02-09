@@ -37,20 +37,18 @@ public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Optio
             AssetManager assetManager = context.getAssets();
             try {
                 switch (widgetPosition) {
+
                     case 0:
-                        istr = assetManager.open("lobby.jpg");
+                        istr = assetManager.open("lobby_new.jpg");
                         break;
                     case 1:
-                        istr = assetManager.open("reception.jpg");
+                        istr = assetManager.open("inside_office_new.jpg");
                         break;
                     case 2:
-                        istr = assetManager.open("inside_office_vt.jpg");
+                        istr = assetManager.open("canteen_new.jpg");
                         break;
                     case 3:
-                        istr = assetManager.open("canteen.jpg");
-                        break;
-                    case 4:
-                        istr = assetManager.open("conference.vr.jpg");
+                        istr = assetManager.open("reception.jpg");
                         break;
                 }
 
