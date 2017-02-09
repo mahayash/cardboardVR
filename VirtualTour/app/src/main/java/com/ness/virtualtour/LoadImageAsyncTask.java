@@ -49,6 +49,9 @@ public class LoadImageAsyncTask extends AsyncTask<Pair<Uri, VrPanoramaView.Optio
                     case 3:
                         istr = assetManager.open("canteen.jpg");
                         break;
+                    case 4:
+                        istr = assetManager.open("conference.vr.jpg");
+                        break;
                 }
 
                 panoOptions = new VrPanoramaView.Options();

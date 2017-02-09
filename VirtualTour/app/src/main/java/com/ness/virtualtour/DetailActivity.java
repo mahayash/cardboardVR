@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
+import android.widget.TextView;
 
 import com.google.vr.sdk.widgets.pano.VrPanoramaView;
 
@@ -22,6 +23,8 @@ public class DetailActivity extends AppCompatActivity implements ILoadImage {
     private LoadImageAsyncTask backgroundImageLoaderTask;
     private Context context;
     private int widgetPosition;
+    private InfraDO infraInfo;
+    private TextView txtTitle, txtDescription;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class DetailActivity extends AppCompatActivity implements ILoadImage {
         setContentView(R.layout.activity_main);
         context = this;
         widgetPosition = getIntent().getIntExtra("widgetPosition", 0);
+        infraInfo = (InfraDO) getIntent().getSerializableExtra("Information");
         InitView();
     }
 
@@ -36,6 +40,13 @@ public class DetailActivity extends AppCompatActivity implements ILoadImage {
     private void InitView() {
 
         pnvView = (VrPanoramaView) findViewById(R.id.pnv_view);
+
+        txtTitle = (TextView) findViewById(R.id.txt_lobby);
+        txtTitle.setText(infraInfo.getText());
+
+        txtDescription = (TextView) findViewById(R.id.txt_description_detail);
+        txtDescription.setText(infraInfo.getDescription());
+
         handleIntent(getIntent(), widgetPosition);
 
     }

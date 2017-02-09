@@ -20,7 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Lobby" />
+            android:text="Title"
+            android:textStyle="bold" />
 
         <com.google.vr.sdk.widgets.pano.VrPanoramaView
             android:id="@+id/pnv_view"
@@ -33,64 +34,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/pnv_view"
-            android:layout_marginTop="10dp"
-            android:text="Description" />
+            android:layout_marginTop="20dp"
+            android:text="Description"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_description_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/txt_description"
-            android:text="asdf asd adsfa sdfasdf asdfas fasdf asd asdf asdfasdf asdfasdfasdfasdfasdfasdfsdfsafdsfasdfa" />
+            android:layout_below="@id/txt_description" />
 
-        <!--
-        <TextView
-            android:id="@+id/txt_reception"
-            style="@style/textStyle"
-            android:layout_below="@id/pnv_lobby"
-            android:text="Reception" />
-
-        <com.google.vr.sdk.widgets.pano.VrPanoramaView
-            android:id="@+id/pnv_reception"
-            style="@style/panoViewStyle"
-            android:layout_below="@id/txt_reception" />
-
-        <TextView
-            android:id="@+id/txt_inside_office"
-            style="@style/textStyle"
-            android:layout_below="@id/pnv_reception"
-            android:text="Inside Office" />
-
-
-        <com.google.vr.sdk.widgets.pano.VrPanoramaView
-            android:id="@+id/pnv_inside_office"
-            style="@style/panoViewStyle"
-            android:layout_below="@id/txt_inside_office" />
-
-
-        <TextView
-            android:id="@+id/txt_canteen"
-            style="@style/textStyle"
-            android:layout_below="@id/pnv_inside_office"
-            android:text="Canteen" />
-
-
-        <com.google.vr.sdk.widgets.pano.VrPanoramaView
-            android:id="@+id/pnv_canteen"
-            style="@style/panoViewStyle"
-            android:layout_below="@id/txt_canteen" />
-
-        <TextView
-            android:id="@+id/txt_conference"
-            style="@style/textStyle"
-            android:layout_below="@id/pnv_canteen"
-            android:text="Conference" />
-
-
-        <com.google.vr.sdk.widgets.pano.VrPanoramaView
-            android:id="@+id/pnv_conference"
-            style="@style/panoViewStyle"
-            android:layout_below="@id/txt_conference" />-->
 
     </RelativeLayout>
 
